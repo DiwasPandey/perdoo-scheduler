@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if results.count == 0 %}
+
+    <h5>There are no resltss</h5>
+
+    {% else %}
+
+    <p>Here are your results events : </p>
+    {% for res in results %}
+    <p>
+        <ul>
+            <li>
+                <h5>{{res.id}}</h5>
+                <h5>{{res.date_created}}</h5>
+                <h5>{{res.date_done}}</h5>
+                <h5>{{res.result}}</h5>
+                <h5>{{res.date_created}}</h5>
+            </li>
+            <hr/>
+        </ul>
+    </p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if pending.count == 0 %}
+
+    <h5>There are no pending events</h5>
+
+    {% else %}
+
+    {% for event in pending %}
+    <p>Here are your pending events : </p>
+    <p>
+    <h5>{{event.name}}</h5>
+    <h5>{{event.datetime}}</h5>
+    <a href="{% url 'update_event' event.id %}">Update Event</a>
+    </p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
+
+
+

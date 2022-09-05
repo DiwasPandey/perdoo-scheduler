@@ -1,0 +1,5 @@
+<form method="POST" action="{% url 'create_event' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value="submit"/>
+</form>
