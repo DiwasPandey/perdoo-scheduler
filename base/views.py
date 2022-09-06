@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django_celery_results.models import TaskResult
+from apscheduler.schedulers.background import BackgroundScheduler   
 from datetime import datetime
 from dateutil import parser
 from .models import Event   
@@ -65,7 +66,7 @@ def createEvent(request):
         form = EventForm(request.POST)
         if form.is_valid():
             event = form.save()
-            send_request.delay(event)
+            send_request.delay(event.toJSON())
             return redirect('home')
 
     context = {'form': form}
