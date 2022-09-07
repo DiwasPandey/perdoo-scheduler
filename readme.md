@@ -21,5 +21,5 @@ This will start the celery worker and give information on all taks that celery g
 ### Starting the Django server
 While virtual environment is active, run (on separate bash instance)
 `python manage.py runserver`
-This will start the server at default url "htttps://127.0.0.1:8000/". If the port of occupied, the server won't start and you will have to provide the port manually :
+This will start the server at default url htttps://127.0.0.1:8000/ . If the port of occupied, the server won't start and you will have to provide the port manually :
 `python manage.py runserver <port_number>`
