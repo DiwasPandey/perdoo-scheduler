@@ -2,8 +2,27 @@
 
 {% block content %}
 
+<!-- {% if messages %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %} -->
+
+<!-- {% if mess.count != 0 %}
+<ul class="messages">
+    {% for message in mess %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} -->
+
+
 <div>
-    <form method="POST" action="">
+    <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     
     <label>Username : </label>

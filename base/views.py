@@ -63,10 +63,17 @@ def createEvent(request):
     form = EventForm()
     if request.method == 'POST':
         form = EventForm(request.POST)
-        if form.is_valid():
-            event = form.save()
-            send_request.delay(event.toJSON())
-            return redirect('home')
+        try:
+            date = parser.parse(form['datetime'])  
+            print(date)
+            if form.is_valid():
+                event = form.save()
+                send_request.delay(event.toJSON())
+                return redirect('home')  
+        except:
+            messages.error(request, 'Please enter a valid date')
+            context = {'form': form}
+            return render(request, 'base/login.html', context)
 
     context = {'form': form}
     return render(request, 'base/create_event.html', context)

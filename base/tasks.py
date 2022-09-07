@@ -20,6 +20,10 @@ def send_request(event):
         elif event['method'] == 'DELETE':
             response = requests.delete(event['requestURI'])
             
-        return response.text
+        return {
+            'name' : event['name'],
+            'status_code' : response.status_code,
+            'text':response.text,
+        }
     else:
         return 'Time already passed!'
